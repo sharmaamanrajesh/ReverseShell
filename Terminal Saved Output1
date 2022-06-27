@@ -1,0 +1,68 @@
+Last login: Mon Jun 27 12:27:17 on ttys006
+amansharma@Amans-MacBook-Air ~ % ls
+Applications			Movies				keypair
+Desktop				Music				keypair.pub
+Documents			NetBeansProjects		mysql-connector-java-8.0.29
+Downloads			Pictures			recv.txt
+Library				Public
+amansharma@Amans-MacBook-Air ~ % clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+amansharma@Amans-MacBook-Air ~ % ssh -i /Users/amansharma/keypair root@139.59.94.150
+Enter passphrase for key '/Users/amansharma/keypair': 
+Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-107-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Jun 27 08:50:51 UTC 2022
+
+  System load:  0.0               Users logged in:       0
+  Usage of /:   7.8% of 24.06GB   IPv4 address for eth0: 139.59.94.150
+  Memory usage: 25%               IPv4 address for eth0: 10.47.0.5
+  Swap usage:   0%                IPv4 address for eth1: 10.122.0.2
+  Processes:    107
+
+32 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+*** System restart required ***
+Last login: Mon Jun 27 08:22:55 2022 from 42.106.249.221
+root@reverse-shell-project-server:~# 
+
+
+
+
+
+
+
+
+
+
+
