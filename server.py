@@ -1,7 +1,5 @@
-from glob import glob
 import socket
 import sys
-from xmlrpc.client import _HostType
 
 # Creating a Socket
 def createSocket():
@@ -23,7 +21,7 @@ def bindSocket():
         global port # In python while using a global variable declared in another function has to be declared in all the functions where it is being used.
         global s
 
-        print("Binding the Socket with the Port number"+str(port))
+        print("Binding the Socket with the Port: "+str(port))
         s.bind((host,port))
         s.listen(5)
     except socket.error as msg:
@@ -37,3 +35,25 @@ def acceptSocket():
     sendCmd(conObj)
 
     conObj.close()
+
+# Function to send/receive commands on the server side
+def sendCmd(conObj):
+    while True:
+        cmd = input()
+        if cmd == 'quit':
+            conObj.close()
+            s.close()
+            sys.exit()
+        if len(str.encode(cmd))>0:
+            conObj.send(str.encode(cmd))
+            clientResp = str(conObj.recv(1024),'utf-8')
+            print(clientResp, end = "\n")
+
+# Defining main function
+def main():
+    createSocket()
+    bindSocket()
+    acceptSocket()
+
+# Calling main function
+main()
