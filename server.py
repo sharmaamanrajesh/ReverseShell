@@ -47,7 +47,7 @@ def sendCmd(conObj):
         if len(str.encode(cmd))>0:
             conObj.send(str.encode(cmd))
             clientResp = str(conObj.recv(1024),'utf-8')
-            print(clientResp, end = "\n")
+            print(clientResp, end = "")
 
 # Defining main function
 def main():
