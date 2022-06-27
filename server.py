@@ -24,6 +24,7 @@ def bindSocket():
         print("Binding the Socket with the Port: "+str(port))
         s.bind((host,port))
         s.listen(5)
+        print("Waiting for client to connect...")
     except socket.error as msg:
         print("Socket Binding Error Occured"+ str(msg)+ "\nRetrying...")
         bindSocket()
@@ -31,7 +32,7 @@ def bindSocket():
 # Function to accept the connection with the client
 def acceptSocket():
     conObj,add = s.accept() #conObj --> connection object & add --> address|| add is a list first element is IP address and second element is PORT number
-    print("Connection Successful..."+"IP: "+add[0]+"PORT: "+str(add[1]))
+    print("Connection Successful..."+"|IP: "+add[0]+"|PORT: "+str(add[1]))
     sendCmd(conObj)
 
     conObj.close()
@@ -41,13 +42,14 @@ def sendCmd(conObj):
     while True:
         cmd = input()
         if cmd == 'quit':
+            conObj.send(str.encode(cmd))
             conObj.close()
             s.close()
             sys.exit()
         if len(str.encode(cmd))>0:
             conObj.send(str.encode(cmd))
             clientResp = str(conObj.recv(1024),'utf-8')
-            print(clientResp, end = "")
+            print(clientResp, end = " ")
 
 # Defining main function
 def main():
